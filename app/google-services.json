@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "628320125758",
+    "firebase_url": "https://resto-ada04.firebaseio.com",
+    "project_id": "resto-ada04",
+    "storage_bucket": "resto-ada04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628320125758:android:7f23a6b99ddfaab1d3e26f",
+        "android_client_info": {
+          "package_name": "com.example.resto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628320125758-pcva7n574g7d2b45ccjdivfqdb9tmttc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo7aKBZIj3C-n8e6R4CdMbBcuTYQYl_-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628320125758-pcva7n574g7d2b45ccjdivfqdb9tmttc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
