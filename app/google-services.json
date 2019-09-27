@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "628320125758-vdmli4a8h10ut0ifv55gsgsqca220e0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.resto",
+            "certificate_hash": "84f000e872a633651d36681961ca8a46d83eff5d"
+          }
+        },
+        {
           "client_id": "628320125758-pcva7n574g7d2b45ccjdivfqdb9tmttc.apps.googleusercontent.com",
           "client_type": 3
         }
