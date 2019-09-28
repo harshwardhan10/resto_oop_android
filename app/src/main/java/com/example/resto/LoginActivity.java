@@ -1,11 +1,9 @@
 package com.example.resto;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -22,8 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.time.Instant;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailid, password;
@@ -78,16 +74,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailid.getText().toString();
                 String pwd = password.getText().toString();
-                if (email.isEmpty() ){
+
+                if (email.isEmpty() && pwd.isEmpty()){
+                    Toast.makeText(LoginActivity.this,"Fields are empty!", Toast.LENGTH_SHORT).show();
+                }
+                else if (email.isEmpty() ){
                     emailid.setError("Please enter email id");
                     emailid.requestFocus();
                 }
-                else if (pwd.isEmpty() ){
+                else if (pwd.isEmpty() ) {
                     password.setError("Please enter password");
                     password.requestFocus();
-                }
-                else if (email.isEmpty() && pwd.isEmpty()){
-                    Toast.makeText(LoginActivity.this,"Fields are empty!", Toast.LENGTH_SHORT).show();
                 }
                 else if (!(email.isEmpty() && pwd.isEmpty())) {
                     mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -113,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(LoginActivity.this, MainActivity.class);
+                Intent i= new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(i);
             }
         });

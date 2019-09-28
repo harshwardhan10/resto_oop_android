@@ -20,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
     EditText emailid, password;
     Button btnSignUp;
     TextView tvSignIn;
@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailid.getText().toString();
                 final String pwd = password.getText().toString();
+
                 if (email.isEmpty() ){
                     emailid.setError("Please enter email id");
                     emailid.requestFocus();
@@ -62,28 +63,26 @@ public class MainActivity extends AppCompatActivity {
                     password.setError("Please enter password");
                     password.requestFocus();
                 }
-                else if (email.isEmpty() && pwd.isEmpty()){
-                    Toast.makeText(MainActivity.this,"Fields are empty!", Toast.LENGTH_SHORT).show();
-                }
+
                 else if (!(email.isEmpty() && pwd.isEmpty())) {
-                    mFirebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    mFirebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "SignUp Unsuccessful,Please Try Again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this, "SignUp Unsuccessful,Please Try Again", Toast.LENGTH_SHORT).show();
                             }
                             else if (pwd.length()<6){
-                                Toast.makeText(MainActivity.this, "Password must have atleast 6 characters", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this, "Password must have atleast 6 characters", Toast.LENGTH_SHORT).show();
                             }
 
                             else {
-                                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                                startActivity(new Intent(SignupActivity.this, HomeActivity.class));
                             }
                         }
                     });
                 }
                 else {
-                    Toast.makeText(MainActivity.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupActivity.this,"Error Occurred!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -91,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         tvSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(MainActivity.this, LoginActivity.class);
+                Intent j = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(j);
             }
         });
