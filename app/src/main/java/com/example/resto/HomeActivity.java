@@ -35,6 +35,6 @@ public class HomeActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Back Not allowed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Back Not allowed ", Toast.LENGTH_SHORT).show();
     }
 }
