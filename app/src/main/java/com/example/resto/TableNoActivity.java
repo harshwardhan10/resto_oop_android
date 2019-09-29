@@ -2,6 +2,7 @@ package com.example.resto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +26,18 @@ public class TableNoActivity extends AppCompatActivity implements AdapterView.On
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         table.setAdapter(adapter);
         table.setOnItemSelectedListener(this);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAction();
+            }
+        });
+
+    }
+    public void startAction()
+    {
+        Intent intent = new Intent(this,NavigationActivity.class);
+        startActivity(intent);
     }
 
 
